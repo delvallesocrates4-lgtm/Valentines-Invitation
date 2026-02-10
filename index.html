@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinnamoroll Valentine</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 90%;
+      max-width: 420px;
+      padding: 30px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(255, 182, 193, 0.45);
+      animation: fadeIn 0.8s ease;
+    }
+
+    h1 {
+      color: #ff7eb9;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .sticker {
+      width: 180px;
+      margin-bottom: 15px;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 40px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .yes {
+      background: #ff7eb9;
+      color: white;
+    }
+
+    .no {
+      background: #ffe0ef;
+      color: #ff7eb9;
+      position: relative;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INTRO SLIDE -->
+  <div class="card" id="page0">
+    <img class="sticker" src="" alt="Cinnamoroll GIF" />
+    <h1>Hello maby 💕</h1>
+    <p>
+      Can I ask you something?<br>
+      Since it's the month of love and as someone who loves you so much,
+      I want to show my affection and love for you so...
+    </p>
+    <button class="yes" onclick="goNext()">Continue 💖</button>
+  </div>
+
+  <!-- PAGE 1 -->
+  <div class="card hidden" id="page1">
+    <img class="sticker" src="https://tenor.com/bMfI2.gif" alt="Cinnamoroll GIF" />
+    <h1>Will you be my Valentine?</h1>
+    <p>
+      I wanna spend my time with you and create
+      new memories together 💗
+    </p>
+
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 😍</button>
+      <button class="no" id="noBtn" onclick="moveNo()">No 😔</button>
+    </div>
+  </div>
+
+  <!-- THANK YOU PAGE -->
+  <div class="card hidden" id="page2">
+    <img class="sticker" src="https://tenor.com/kMr8kkkrlEZ.gif" alt="Cinnamoroll GIF" />
+    <h1>YEYYYYY!! 💖</h1>
+    <p>
+      Thank you for saying YES, Mabyyy 🥰<br><br>
+      You made me the happiest man in the world hihi
+    </p>
+    <p>
+      I love you so much, my babyyy! 💕
+    </p>
+  </div>
+
+  <script>
+    function goNext() {
+      document.getElementById('page0').classList.add('hidden');
+      document.getElementById('page1').classList.remove('hidden');
+    }
+
+    function sayYes() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+
+    function moveNo() {
+      const noBtn = document.getElementById('noBtn');
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+</body>
+</html>
